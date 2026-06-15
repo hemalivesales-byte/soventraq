@@ -1,67 +1,41 @@
-import React from 'react';
-import Navigation from './sections/Navigation';
-import HeroSection from './sections/HeroSection';
-import TrustedBySection from './sections/TrustedBySection';
-import AboutSection from './sections/AboutSection';
-import JourneySection from './sections/JourneySection';
-import WhatWeBuildSection from './sections/WhatWeBuildSection';
-import ServicesSection from './sections/ServicesSection';
-import KineticOrbSection from './sections/KineticOrbSection';
-import DualWaveGallery from './sections/DualWaveGallery';
-import PlatformDevSection from './sections/PlatformDevSection';
-import MarketingSystemsSection from './sections/MarketingSystemsSection';
-import AutomationCRMSection from './sections/AutomationCRMSection';
-import AIPoweredSection from './sections/AIPoweredSection';
-import WhyChooseSection from './sections/WhyChooseSection';
-import ProcessSection from './sections/ProcessSection';
-import PortfolioSection from './sections/PortfolioSection';
-import ResultsSection from './sections/ResultsSection';
-import CTASection from './sections/CTASection';
-import ContactSection from './sections/ContactSection';
-import Footer from './sections/Footer';
+import React, { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router';
+import ScrollToTop from './components/ScrollToTop';
 
-const SectionDivider: React.FC = () => (
-  <div className="section-divider" />
+// Lazy-load all pages so each page's bundle is only loaded when visited
+const HomePage     = lazy(() => import('./pages/HomePage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
+const AboutPage    = lazy(() => import('./pages/AboutPage'));
+const ContactPage  = lazy(() => import('./pages/ContactPage'));
+
+const PageSpinner: React.FC = () => (
+  <div
+    className="min-h-screen flex items-center justify-center"
+    style={{ background: '#03020f' }}
+  >
+    <div
+      className="w-10 h-10 rounded-full border-2 border-transparent animate-spin"
+      style={{ borderTopColor: '#00f0ff' }}
+    />
+  </div>
 );
 
-const App: React.FC = () => {
-  return (
-    <div className="min-h-screen bg-[#03020f] text-white">
-      <Navigation />
-      <HeroSection />
-      <TrustedBySection />
-      <SectionDivider />
-      <AboutSection />
-      <SectionDivider />
-      <JourneySection />
-      <SectionDivider />
-      <WhatWeBuildSection />
-      <SectionDivider />
-      <ServicesSection />
-      <KineticOrbSection />
-      <DualWaveGallery />
-      <SectionDivider />
-      <PlatformDevSection />
-      <SectionDivider />
-      <MarketingSystemsSection />
-      <SectionDivider />
-      <AutomationCRMSection />
-      <SectionDivider />
-      <AIPoweredSection />
-      <SectionDivider />
-      <WhyChooseSection />
-      <SectionDivider />
-      <ProcessSection />
-      <SectionDivider />
-      <PortfolioSection />
-      <SectionDivider />
-      <ResultsSection />
-      <CTASection />
-      <SectionDivider />
-      <ContactSection />
-      <Footer />
-    </div>
-  );
-};
+const App: React.FC = () => (
+  <>
+    <ScrollToTop />
+    <Suspense fallback={<PageSpinner />}>
+      <Routes>
+        <Route path="/"          element={<HomePage />} />
+        <Route path="/services"  element={<ServicesPage />} />
+        <Route path="/solutions" element={<SolutionsPage />} />
+        <Route path="/about"     element={<AboutPage />} />
+        <Route path="/contact"   element={<ContactPage />} />
+        {/* Fallback: redirect unknown routes to home */}
+        <Route path="*"          element={<HomePage />} />
+      </Routes>
+    </Suspense>
+  </>
+);
 
 export default App;
