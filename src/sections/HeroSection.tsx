@@ -623,13 +623,13 @@ const HeroSection: React.FC = () => {
 
                 {/* Buttons */}
                 <div className="flex flex-wrap gap-3 pointer-events-auto mb-6">
-                  <CTAButton variant="filled" href="#contact">
+                  <CTAButton variant="filled" href="/contact">
                     Book a Free Consultation
                     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" className="ml-1 shrink-0">
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </CTAButton>
-                  <CTAButton variant="outlined" href="#services">
+                  <CTAButton variant="outlined" href="/services">
                     View Our Services
                   </CTAButton>
                 </div>

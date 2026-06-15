@@ -26,11 +26,11 @@ const CTASection: React.FC = () => {
           Every day without the right digital systems is a day of missed leads and lost revenue. Let's build yours — together.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <CTAButton variant="filled" href="#contact">
+          <CTAButton variant="filled" href="/contact">
             Start Your Project
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </CTAButton>
-          <CTAButton variant="outlined" href="#contact">
+          <CTAButton variant="outlined" href="/contact">
             Book a Free Consultation
           </CTAButton>
         </div>
