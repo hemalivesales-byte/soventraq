@@ -6,7 +6,7 @@ import {
   Globe, Users, Zap,
   Target, BarChart3, Palette,
   Search, Hammer, TrendingUp,
-  ArrowRight,
+  ArrowRight, Server, Plug, Cpu,
 } from 'lucide-react';
 
 // Only the 3D hero is lazy-loaded (Three.js is ~1.1 MB)
@@ -227,6 +227,77 @@ const ProcessPreview: React.FC = () => (
 );
 
 /* ════════════════════════════════════════════════
+   PLATFORM PREVIEW — compact 3-card teaser
+   ════════════════════════════════════════════════ */
+const platformHighlights = [
+  { icon: Server, title: 'Enterprise Architecture', desc: '99.9% uptime SLA with auto-scaling cloud infrastructure built for mission-critical operations.', accent: '#6b2fff' },
+  { icon: Plug,   title: 'Custom Integrations',     desc: 'Connect Salesforce, HubSpot, Zapier, Stripe, and 200+ tools into a unified business hub.', accent: '#00f0ff' },
+  { icon: Cpu,    title: 'AI-Assisted Automation',  desc: 'Intelligent workflows that learn, adapt, and continuously improve your operations 24/7.', accent: '#6b2fff' },
+];
+
+const PlatformPreview: React.FC = () => (
+  <section className="section-padding bg-[#0a0a1a] relative overflow-hidden">
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(107,47,255,0.05) 0%, transparent 70%)' }}
+    />
+    <div className="max-w-[1280px] mx-auto relative z-10">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div>
+          <p className="caption-text mb-3">OUR PLATFORM</p>
+          <h2 className="h2-section text-white">
+            Built for <span style={{ color: '#6b2fff' }}>Scale</span>
+          </h2>
+        </div>
+        <Link
+          to="/platform"
+          className="flex items-center gap-2 text-sm font-semibold tracking-wide transition-colors duration-300 group shrink-0"
+          style={{ color: 'rgba(107,47,255,0.7)' }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#6b2fff')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(107,47,255,0.7)')}
+        >
+          Explore Platform
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {platformHighlights.map((item, i) => (
+          <div
+            key={i}
+            className="group rounded-[18px] p-[1px] transition-all duration-400 hover:-translate-y-2"
+            style={{
+              background: `linear-gradient(135deg, ${item.accent}28, rgba(0,240,255,0.08), transparent 60%)`,
+            }}
+          >
+            <div
+              className="h-full rounded-[17px] p-7"
+              style={{ background: 'linear-gradient(135deg, rgba(10,10,26,0.97), rgba(3,2,15,0.99))' }}
+            >
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                style={{
+                  background: `linear-gradient(135deg, ${item.accent}15, ${item.accent}05)`,
+                  border: `1px solid ${item.accent}22`,
+                }}
+              >
+                <item.icon className="w-5 h-5" style={{ color: item.accent }} />
+              </div>
+              <h3 className="h4-card text-white mb-2 leading-snug" style={{ transition: 'color 0.3s' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = item.accent)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'white')}
+              >
+                {item.title}
+              </h3>
+              <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+/* ════════════════════════════════════════════════
    HOME PAGE — final composition
    ════════════════════════════════════════════════ */
 const HomePage: React.FC = () => (
@@ -243,6 +314,9 @@ const HomePage: React.FC = () => (
 
     <div className="section-divider" />
     <ProcessPreview />
+
+    <div className="section-divider" />
+    <PlatformPreview />
 
     <CTASection />
   </PageLayout>

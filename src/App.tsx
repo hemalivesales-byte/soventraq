@@ -3,11 +3,12 @@ import { Routes, Route } from 'react-router';
 import ScrollToTop from './components/ScrollToTop';
 
 // Lazy-load all pages so each page's bundle is only loaded when visited
-const HomePage     = lazy(() => import('./pages/HomePage'));
-const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const HomePage      = lazy(() => import('./pages/HomePage'));
+const ServicesPage  = lazy(() => import('./pages/ServicesPage'));
+const PlatformPage  = lazy(() => import('./pages/PlatformPage'));
 const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
-const AboutPage    = lazy(() => import('./pages/AboutPage'));
-const ContactPage  = lazy(() => import('./pages/ContactPage'));
+const AboutPage     = lazy(() => import('./pages/AboutPage'));
+const ContactPage   = lazy(() => import('./pages/ContactPage'));
 
 const PageSpinner: React.FC = () => (
   <div
@@ -28,6 +29,7 @@ const App: React.FC = () => (
       <Routes>
         <Route path="/"          element={<HomePage />} />
         <Route path="/services"  element={<ServicesPage />} />
+        <Route path="/platform"  element={<PlatformPage />} />
         <Route path="/solutions" element={<SolutionsPage />} />
         <Route path="/about"     element={<AboutPage />} />
         <Route path="/contact"   element={<ContactPage />} />
