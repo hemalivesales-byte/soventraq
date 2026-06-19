@@ -1,6 +1,7 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import CTASection from '../sections/CTASection';
+import PageHeroVisual from '../components/PageHeroVisual';
 import {
   Globe, Users, Zap, Send, BarChart3, TrendingUp, Share2,
   CheckCircle,
@@ -31,6 +32,7 @@ const ServicesHero: React.FC = () => (
         backgroundSize: '60px 60px',
       }}
     />
+    <PageHeroVisual variant="services" />
     <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
       <p className="caption-text mb-5">OUR SERVICES</p>
       <h1 className="h2-section text-white mb-6 max-w-[700px]">

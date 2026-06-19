@@ -1,6 +1,7 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
 import ContactSection from '../sections/ContactSection';
+import PageHeroVisual from '../components/PageHeroVisual';
 
 const ContactHero: React.FC = () => (
   <section
@@ -22,6 +23,7 @@ const ContactHero: React.FC = () => (
         backgroundSize: '60px 60px',
       }}
     />
+    <PageHeroVisual variant="contact" />
     <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10 pb-8">
       <p className="caption-text mb-4">GET IN TOUCH</p>
       <h1 className="h2-section text-white max-w-[580px]">

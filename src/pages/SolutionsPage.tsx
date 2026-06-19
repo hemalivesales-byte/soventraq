@@ -2,6 +2,7 @@ import React from 'react';
 import type { LucideIcon } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import CTASection from '../sections/CTASection';
+import PageHeroVisual from '../components/PageHeroVisual';
 import { Building2, Plane, Stethoscope, Briefcase, Store, ArrowRight } from 'lucide-react';
 
 interface Solution {
@@ -137,6 +138,7 @@ const SolutionsHero: React.FC = () => (
         backgroundSize: '60px 60px',
       }}
     />
+    <PageHeroVisual variant="solutions" />
     <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
       <p className="caption-text mb-5">SOLUTIONS BY INDUSTRY</p>
       <h1 className="h2-section text-white mb-6 max-w-[720px]">

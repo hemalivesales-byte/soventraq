@@ -1,5 +1,6 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
+import PageHeroVisual from '../components/PageHeroVisual';
 import CTASection from '../sections/CTASection';
 import PlatformDevSection from '../sections/PlatformDevSection';
 import AutomationCRMSection from '../sections/AutomationCRMSection';
@@ -28,6 +29,7 @@ const PlatformHero: React.FC = () => (
         backgroundSize: '60px 60px',
       }}
     />
+    <PageHeroVisual variant="platform" />
     <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
       <p className="caption-text mb-5">OUR PLATFORM</p>
       <h1 className="h2-section text-white mb-6 max-w-[720px]">
