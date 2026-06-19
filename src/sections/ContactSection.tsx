@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GlassCard from '../components/GlassCard';
-import { Mail, MessageCircle, MapPin, Send, ArrowRight, AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
+import { Mail, MessageCircle, MapPin, ArrowRight, AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
 
 type FormState = {
   name: string;
