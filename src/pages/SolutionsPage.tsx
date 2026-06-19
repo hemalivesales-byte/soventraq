@@ -1,10 +1,11 @@
 import React from 'react';
+import type { LucideIcon } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import CTASection from '../sections/CTASection';
 import { Building2, Plane, Stethoscope, Briefcase, Store, ArrowRight } from 'lucide-react';
 
 interface Solution {
-  icon: React.ElementType;
+  icon: LucideIcon;
   industry: string;
   tagline: string;
   desc: string;
